@@ -1,0 +1,246 @@
+		
+			
+	
+
+/*Lifestream*/
+
+#mycarousel {
+	height:415px;
+	overflow:hidden;
+	margin:5px 0 20px 0;
+	}
+
+#mycarousel li {
+	margin:0;
+	padding:0;
+	}
+
+#mycarousel li {
+	font-size:0.9em;
+	padding-bottom:14px;
+	line-height:145%;
+	padding-left:26px;
+	line-height:110%;
+	}
+
+#mycarousel li.date  {
+	text-transform:uppercase;
+	font:.65em 'Lucida Grande','Lucida Sans Unicode',Arial;
+	color:#a57f88;
+	letter-spacing:0.2em;
+	padding:0 0 7px 0;
+	}
+
+li.twitter {
+	background:url(../img/streamicon_twitter.gif) no-repeat;
+	}
+
+li.delicious {
+	background:url(../img/streamicon_delicious.gif) no-repeat;
+	}		
+
+li.flickr {
+	background:url(../img/streamicon_flickr.gif) no-repeat;
+	}		
+
+li.lastfm {
+	background:url(../img/streamicon_lastfm.gif) no-repeat;
+	}
+
+li.facebook {
+	background:url(../img/streamicon_facebook.gif) no-repeat;
+	}
+
+li.goodreads {
+	background:url(../img/streamicon_goodreads.gif) no-repeat;
+	}
+
+li.magnolia {
+	background:url(../img/streamicon_magnolia.gif) no-repeat;
+	}
+
+li.netflix {
+	background:url(../img/streamicon_netflix.gif) no-repeat;
+	}
+
+li.pownce {
+	background:url(../img/streamicon_pownce.gif) no-repeat;
+	}
+				
+#mycarousel a, #mycarousel a:visited {
+	color:#938f83;
+	font-size:0.75em;
+	}	
+		
+#item-1 a, #item-1 a:visited {
+	font-size:1em;
+	color:#f2f0e9;
+	}
+	
+#item-2 a, #item-2 a:visited {
+	color:#e7e4d8;
+	font-size:0.9em;
+	}	
+
+#item-3 a, #item-3 a:visited {
+	color:#ccc8bc;
+	font-size:0.9em;
+	}	
+
+#item-4 a, #item-4 a:visited {
+	color:#afaba0;
+	font-size:0.75em;
+	}	
+
+#mycarousel a:hover, #mycarousel a:active {
+	text-decoration:underline;
+	}	
+
+#mycarousel img {
+	height:160px;
+	padding:3px;
+	border:1px solid #4f383d;
+	margin:0 13px 7px 0;
+	display:block;
+	}
+	
+	
+	
+	
+	
+	
+	/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+.jcarousel-container {
+    position: relative;
+}
+
+.jcarousel-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.jcarousel-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel-list li,
+.jcarousel-item {
+    float: left;
+    list-style: none;
+    /* We set the width/height explicitly. No width/height causes infinite loops. */
+    width: 260px;
+    height: 75px;
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {
+    z-index: 3;
+    display: none;
+}
+
+.jcarousel-prev {
+    z-index: 3;
+    display: none;
+}
+
+
+
+
+.jcarousel-skin-tango .jcarousel-container {
+}
+
+.jcarousel-skin-tango .jcarousel-container-vertical {
+    height: 415px;
+    padding: 0px 0px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip-vertical {
+	width:290px;
+    height: 380px;
+	padding-right:20px
+}
+
+.jcarousel-skin-tango .jcarousel-item {
+	height:300px;
+    height: auto;
+}
+
+.jcarousel-skin-tango .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+
+
+/**
+ *  Vertical Buttons
+ */
+.jcarousel-skin-tango .jcarousel-next-vertical {
+    position: absolute;
+    top: -34px;
+    left: 270px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../img/next-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-tango .jcarousel-next-vertical:hover {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin-tango .jcarousel-next-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-tango .jcarousel-next-disabled-vertical,
+.jcarousel-skin-tango .jcarousel-next-disabled-vertical:hover,
+.jcarousel-skin-tango .jcarousel-next-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-vertical {
+    position: absolute;
+    top: -33px;
+    left: 245px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../img/prev-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-vertical:hover {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-disabled-vertical,
+.jcarousel-skin-tango .jcarousel-prev-disabled-vertical:hover,
+.jcarousel-skin-tango .jcarousel-prev-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}

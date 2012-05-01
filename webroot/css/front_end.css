@@ -14,9 +14,11 @@ p {
 	font-family: sans-serif;
 	font-size: 1.4em;
 }
-a:hover {
-	color: #62851b;
+a {
 	text-decoration: underline;
+}
+a:hover {
+	color: #fff;
 }
 .text-shadow {
 	text-shadow: white 0px 1px 0px;

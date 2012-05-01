@@ -1,5 +1,8 @@
-li3_access
-li3_facebook
-li3_flash_message
-li3_paginate
-lithium
+These are Github URLs for your browser, NOT repo addresses.
+
+https://github.com/UnionOfRAD/lithium
+https://github.com/UnionOfRAD/li3_qa
+https://github.com/tmaiaroto/li3_access
+https://github.com/tmaiaroto/li3_facebook
+https://github.com/michaelhue/li3_flash_message
+https://github.com/primetheus/li3_paginate

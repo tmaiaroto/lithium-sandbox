@@ -1,0 +1,15 @@
+[submodule "libraries/lithium"]
+	path = libraries/lithium
+	url = https://github.com/UnionOfRAD/lithium.git
+[submodule "libraries/li3_access"]
+	path = libraries/li3_access
+	url = https://tmaiaroto@github.com/tmaiaroto/li3_access.git
+[submodule "libraries/li3_paginate"]
+	path = libraries/li3_paginate
+	url = https://github.com/tmaiaroto/li3_paginate.git
+[submodule "libraries/li3_flash_message"]
+	path = libraries/li3_flash_message
+	url = https://github.com/michaelhue/li3_flash_message.git
+[submodule "libraries/li3_facebook"]
+	path = libraries/li3_facebook
+	url = https://github.com/tmaiaroto/li3_facebook.git

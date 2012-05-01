@@ -74,17 +74,17 @@ Connections::add(
 		'production' => array(
 			'type' => 'MongoDb',
 			'host' => 'localhost',
-			'database' => 'lithium_example_project'
+			'database' => 'sandbox'
 		),
 		'development' => array(
 			'type' => 'MongoDb',
 			'host' => 'localhost',
-			'database' => 'lithium_example_project_dev'
+			'database' => 'sandbox_dev'
 		),
 		'test' => array(
 			'type' => 'database', 
 			'adapter' => 'MongoDb', 
-			'database' => 'lithium_example_project_test', 
+			'database' => 'sandbox_test', 
 			'host' => 'localhost'
 		)
 	)

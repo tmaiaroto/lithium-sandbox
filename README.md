@@ -1,7 +1,7 @@
 Lithium Sandbox
 =======
 
-A code sandbox for screen casts, tutorials, sharing, collaborating, etc.
+A code sandbox for screencasts, tutorials, sharing, collaborating, etc.
 
 ### How it Works
 
@@ -51,12 +51,13 @@ If you need help setting up a local development environment or configuring any s
 I'll be sure to have a tutorial for that using Nginx and Apache in the future. In the meantime, you 
 should be able to find some information via Google.
 
-Last, you'll probably want MongoDB. Some tutorials will use MySQL, but MongoDB is our weapon of 
-choice. It's extremely easy to download and run as a service for OS X, Linux, or Windows because 
-you're basically using a package manager or downloading a binary. You have nothing to compile or 
-even configure. You just run it. The ```config/bootstrap/connections.php``` file defines the default 
-connection to MongoDB and uses the database called "sandbox" which you can change if you like. 
-I would keep it the same if you can help it, because it could create confusion for you later on.
+Last, you'll need MongoDB. Some tutorials will use MySQL, but MongoDB is our weapon of choice. 
+It's extremely easy to download and run as a service for OS X, Linux, or Windows because you're 
+basically using a package manager or downloading a binary. You have nothing to compile or configure. 
+You just run it. The ```config/bootstrap/connections.php``` file defines the default connection to 
+MongoDB and uses the database called "sandbox" which you can change if you like. I would keep it the 
+same if you can help it, because it could create confusion for you later on. With MongoDB, you'll 
+also need the PHP Pecl extension which is pretty straight forward to install as well.
 
 That's it! You're done. If you go to whatever your sub/domain is in your browser you should see the
 sandbox's main screen. From there, you should have all the instruction you need to continue.

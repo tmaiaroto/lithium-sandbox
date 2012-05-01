@@ -87,6 +87,17 @@ Connections::add(
 			'database' => 'sandbox_test', 
 			'host' => 'localhost'
 		)
+	),
+	'sandbox_master', array(
+		'type' => 'database',
+		'adapter' => 'MongoDb',
+		'database' => 'li3_sandbox',
+		'host' => 'dbh46.mongolab.com:27467',
+		// NOTE: If you're using MongoLab or MongoHQ, etc. you'll want to ensure the connect timeout 
+		// is a pretty healthy value. Otherwise, you'll run into some trouble.
+		'timeout' => 81000,
+		'login' => 'public',
+		'password' => 'password'
 	)
 );
 ?>

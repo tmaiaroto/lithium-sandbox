@@ -15,8 +15,6 @@
 		echo $this->html->script(array('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js', 'jquery/jquery.tipsy.js', 'tiny_mce/jquery.tinymce.js'), array('inline' => false));
 	?>
 	<?php
-		//echo $this->optimize->scripts();
-		//echo $this->optimize->styles();
 		echo $this->scripts();
 		echo $this->styles();
 	?>
@@ -25,7 +23,7 @@
 <body class="app">
 	<div id="container">
 		<div id="header">
-			<h1>Keyword &amp; Phrase Extraction Tool</h1>
+			<h1>Lithium Sandbox</h1>
 		</div>
 		<div id="content">
 			<?php echo $this->content(); ?>

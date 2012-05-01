@@ -22,8 +22,6 @@
 	?>
 		
 	<?php
-		//echo $this->optimize->scripts();
-		//echo $this->optimize->styles();
 		echo $this->scripts();
 		echo $this->styles();
 	?>

@@ -21,7 +21,7 @@ use lithium\core\Environment;
 use lithium\action\Dispatcher;
 
 // Set the evironment
-if($_SERVER['HTTP_HOST'] == 'game.dev.local' || $_SERVER['HTTP_HOST'] == 'localhost') {
+if($_SERVER['HTTP_HOST'] == 'sandbox.dev.local' || $_SERVER['HTTP_HOST'] == 'sandbox.local' || $_SERVER['HTTP_HOST'] == 'localhost') {
 	Environment::set('development');
 }
 

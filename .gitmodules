@@ -13,3 +13,6 @@
 [submodule "libraries/li3_facebook"]
 	path = libraries/li3_facebook
 	url = https://github.com/tmaiaroto/li3_facebook.git
+[submodule "libraries/li3_qa"]
+	path = libraries/li3_qa
+	url = https://github.com/UnionOfRAD/li3_qa.git

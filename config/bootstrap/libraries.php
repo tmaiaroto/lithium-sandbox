@@ -133,5 +133,5 @@ Libraries::add('li3_facebook', array(
 ));
 */
 
-// Libraries::add('opengraph'); ?? need this maybe ??
+Libraries::add('li3_qa');
 ?>

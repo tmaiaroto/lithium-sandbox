@@ -8,6 +8,7 @@
 namespace app\controllers;
 
 use app\models\SandboxArticle;
+use app\models\SandboxLink;
 use app\models\SandboxScreencast;
 use MongoId;
 use MongoDate;
@@ -98,5 +99,60 @@ class SandboxController extends \lithium\action\Controller {
 		return compact('documents', 'total', 'page', 'limit', 'total_pages');
 	}
 	
+	/**
+	 * This action returns a JSON response with a listing of links based on the
+	 * parameters posted to it.
+	 * 
+	 * @return string JSON
+	*/
+	public function links() {
+		$start = microtime(true);
+		
+		// Only allow this action to be viewed as JSON
+		$response = array('success' => false, 'result' => null, 'created' => null);
+		if(!$this->request->is('json')) {
+			return json_encode($response);
+		}
+		
+		// Providing a comma separate list of keywords will return only certain types of links.
+		$keywords = isset($this->request->data['keywords']) ? explode(',', $this->request->data['keywords']):false;
+		
+		$conditions = array();
+		foreach($keywords as $keyword) {
+			$conditions['$or'][] = array('keywords' => trim($keyword));
+		}
+		
+		// Limit just in case. So things don't get out of hand one day.
+		$limit = isset($this->request->data['limit']) ?$this->request->data['limit']:25;
+		$page = $this->request->page ?: 1;
+		$order = array('title' => 'asc');
+		
+		$total = SandboxLink::count(compact('conditions'));
+		$documents = SandboxLink::all(compact('conditions','order','limit','page'));
+		
+		$page_number = (int)$page;
+		$total_pages = ((int)$limit > 0) ? ceil($total / $limit):0;
+		
+		// Pagination info
+		$response['page'] = $page;
+		$response['total'] = $total;
+		$response['limit'] = $limit;
+		$response['total_pages'] = $total_pages;
+		
+		// The links
+		if(!empty($documents)) {
+			$response['success'] = true;
+			
+			foreach($documents as $document) {
+				$response['result'][] = array('title' => $document->title, 'description' => $document->description, 'link' => $document->link);
+			}
+		}
+		
+		// Stats
+		$response['created'] = time();
+		$response['took'] = microtime(true) - $start;
+		
+		return json_encode($response);
+	}
 }
 ?>

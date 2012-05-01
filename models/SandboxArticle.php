@@ -47,7 +47,7 @@ class SandboxArticle extends BaseModel {
 			array('notEmpty', 'message' => 'Title cannot be empty.')
 		),
 		'link' => array(
-			array('notEmpty', 'message' => 'Title cannot be empty.')
+			array('notEmpty', 'message' => 'Link cannot be empty.')
 		)
 	);
 	

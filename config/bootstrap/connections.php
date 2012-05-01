@@ -87,7 +87,10 @@ Connections::add(
 			'database' => 'sandbox_test', 
 			'host' => 'localhost'
 		)
-	),
+	)
+);
+
+Connections::add(
 	'sandbox_master', array(
 		'type' => 'database',
 		'adapter' => 'MongoDb',

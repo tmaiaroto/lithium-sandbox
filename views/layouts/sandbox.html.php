@@ -12,7 +12,7 @@
 	<script>!window.jQuery.ui && document.write('<script src="/js/jquery/jquery-ui-1.8.20.custom.min.js"><\/script>')</script>
 	<?php
 		echo $this->html->script(array('jquery/jquery.tipsy.js'), array('inline' => false));
-		echo $this->html->style(array('reset', 'text', '960', 'jquery/themes/smoothness/jquery-ui-1.8.6.custom.css', 'lithium', 'jquery/tipsy.css'), array('inline' => false)) . "\n";
+		echo $this->html->style(array('reset', 'text', '960', 'jquery/themes/smoothness/jquery-ui-1.8.6.custom.css', 'sandbox', 'jquery/tipsy.css'), array('inline' => false)) . "\n";
 		
 		echo $this->scripts();
 		echo $this->styles();

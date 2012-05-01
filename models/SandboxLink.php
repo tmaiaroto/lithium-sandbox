@@ -1,8 +1,7 @@
 <?php
 /**
- * This model is basically responsible for reading about all the screencasts for the sandbox and 
- * Lithium in general. These screencasts often include tutorials that you can follow along with using
- * the sandbox code and perhaps a specific branch.
+ * This model is responsible for a listing of useful links. There are a lot of useful links out
+ * there about Lithium.
  * 
  * You won't be able to write to this database of course, because you will be connecting with
  * read-only access...So this model is not really important for you to work with. In fact, if you
@@ -11,23 +10,19 @@
 */
 namespace app\models;
 
-class SandboxScreencast extends BaseModel {
+class SandboxLink extends BaseModel {
 	
 	protected $_meta = array(
 		'locked' => true,
 		'connection' => 'sandbox_master',
-		'source' => 'screencasts',
+		'source' => 'links',
 	);
 	
 	protected $_schema = array(
 		'_id' => array('type' => 'id'),
 		'title' => array('type' => 'string'),
 		'description' => array('type' => 'string'),
-		// pretty url
-		'url' => array('type' => 'url'),
-		// link out to video
 		'link' => array('type' => 'string'),
-		'embed' => array('type' => 'string'),
 		'keywords' => array('type' => 'array'),
 		'created' => array('type' => 'date')
 	);

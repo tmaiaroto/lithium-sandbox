@@ -28,7 +28,7 @@ class SandboxScreencast extends BaseModel {
 		// link out to video
 		'link' => array('type' => 'string'),
 		'embed' => array('type' => 'string'),
-		'keywords' => array('type' => 'array'),
+		'tags' => array('type' => 'array'),
 		'created' => array('type' => 'date')
 	);
 	

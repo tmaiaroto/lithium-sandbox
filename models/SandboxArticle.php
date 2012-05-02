@@ -27,7 +27,7 @@ class SandboxArticle extends BaseModel {
 		'url' => array('type' => 'url'),
 		// link out to blog post/article
 		'link' => array('type' => 'string'),
-		'keywords' => array('type' => 'array'),
+		'tags' => array('type' => 'array'),
 		'created' => array('type' => 'date')
 	);
 	

@@ -1,6 +1,6 @@
 <?=$this->html->script('sandbox-widgets'); ?>
 <p>
-	Welcome to the sandbox! Here you can browse through a variety of tutorials and links to more information about Lithium related coding. There are a lot of sites out there and I also hope this application can help wrangle them. This is a local application, but you will likely want an internet connection because you will need one to read various sites linked here and to watch the screencasts.
+	Welcome to the sandbox! This application is intended to be used for learning and experimenting with the ability to easily share and collaborate. Here you can browse through a variety of tutorials and links to more information about Lithium related coding. This is a local application, but all content (including screencasts) is out on the internet.
 </p>
 
 <?php 

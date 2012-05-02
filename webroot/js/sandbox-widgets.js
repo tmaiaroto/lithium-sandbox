@@ -100,6 +100,10 @@ $(document).ready(function() {
 				var title = $(this).attr('title');
 				var tooltip = $(this).attr('rel');
 				
+				// Remove the title attribute so the browser doesn't show a tooltip when a user
+				// hoevers anywhere over the div. We captured its value above in the title var.
+				$(this).removeAttr('title');
+				
 				var widgetHtml = '';
 					if(typeof(title) == 'string') {
 						widgetHtml += '<span class="widget-label text-shadow">' + title + '</span>';

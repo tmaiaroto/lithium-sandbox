@@ -250,18 +250,46 @@ $(document).ready(function() {
 			
 			switch(settings.type) {
 				case 'links':
-					var linksHtml = '<ul class="widget-links-list">';
+					var widgetHtml = '<ul class="widget-links-list">';
 					
 					for(i in data.links) {
-						linksHtml += '<li><a href="' + data.links[i].link + '" target="_blank">' + data.links[i].title + '</a></li>';
+						widgetHtml += '<li><a href="' + data.links[i].link + '" target="_blank">' + data.links[i].title + '</a></li>';
 					}
 					
-					linksHtml += '</ul>';
+					widgetHtml += '</ul>';
 					
-					$('.widget-links .widget-content').html(linksHtml);
+					$('.widget-links .widget-content').html(widgetHtml);
 					
 					// If for some reason we had multiple widgets, they would all now display.
 					$('.widget-links').sandboxWidget('loading', false);
+					break;
+				case 'articles':
+					var widgetHtml = '<ul class="widget-articles-list">';
+					
+					for(i in data.articles) {
+						widgetHtml += '<li><a href="' + data.articles[i].link + '" target="_blank">' + data.articles[i].title + '</a></li>';
+					}
+					
+					widgetHtml += '</ul>';
+					
+					$('.widget-articles .widget-content').html(widgetHtml);
+					
+					// If for some reason we had multiple widgets, they would all now display.
+					$('.widget-articles').sandboxWidget('loading', false);
+					break;
+				case 'screencasts':
+					var widgetHtml = '<ul class="widget-screencasts-list">';
+					
+					for(i in data.screencasts) {
+						widgetHtml += '<li><a href="' + data.screencasts[i].link + '" target="_blank">' + data.screencasts[i].title + '</a></li>';
+					}
+					
+					widgetHtml += '</ul>';
+					
+					$('.widget-screencasts .widget-content').html(widgetHtml);
+					
+					// If for some reason we had multiple widgets, they would all now display.
+					$('.widget-screencasts').sandboxWidget('loading', false);
 					break;
 			}
 			
@@ -321,7 +349,7 @@ $(document).ready(function() {
 			
 			// LINKS
 			$.ajax({
-				url: '/sandbox/links.json',
+				url: '/sandbox/links_list.json',
 				data: { },
 				type: 'POST',
 				dataType: 'json',
@@ -344,9 +372,56 @@ $(document).ready(function() {
 				}
 			});
 
-			// SCREENCASTS (todo)
+			// SCREENCASTS
+			$.ajax({
+				url: '/sandbox/screencasts_list.json',
+				data: { },
+				type: 'POST',
+				dataType: 'json',
+				success: function(response) {
+					// First, let everything know that this call has completed.
+					dataLoaded.screencasts = true;
+					
+					//console.dir(response);
+					if(response.success == true) {
+						// Update the sandboxWidget data.
+						data.screencasts = response.result;
+						$(this).data('sandboxWidget', data);
+						
+						// Call the update method now that we have the data.
+						$this.sandboxWidget('update', {type:'screencasts'});
+					}
+					if(response.result == null || response.success == false) {
+						$this.sandboxWidget('noData');
+					}
+				}
+			});
 			
-			// ARTICLES (todo)
+			// ARTICLES
+			$.ajax({
+				url: '/sandbox/articles_list.json',
+				data: { },
+				type: 'POST',
+				dataType: 'json',
+				success: function(response) {
+					// First, let everything know that this call has completed.
+					dataLoaded.articles = true;
+					
+					//console.dir(response);
+					if(response.success == true) {
+						// Update the sandboxWidget data.
+						data.articles = response.result;
+						$(this).data('sandboxWidget', data);
+						
+						// Call the update method now that we have the data.
+						$this.sandboxWidget('update', {type:'articles'});
+					}
+					if(response.result == null || response.success == false) {
+						$this.sandboxWidget('noData');
+					}
+				}
+			});
+			
 		}
 	};
 	

@@ -1,6 +1,6 @@
 <?=$this->html->script('sandbox-widgets'); ?>
 <p>
-	Welcome to the sandbox! Here you can browse through a variety of tutorials and links to more information about Lithium related coding. There are a lot of sites out there and I also hope this application can help wrangle them.
+	Welcome to the sandbox! Here you can browse through a variety of tutorials and links to more information about Lithium related coding. There are a lot of sites out there and I also hope this application can help wrangle them. This is a local application, but you will likely want an internet connection because you will need one to read various sites linked here and to watch the screencasts.
 </p>
 
 <?php 
@@ -19,7 +19,11 @@
 ?>
 
 <div class="grid-8">
-	<div class="widget-box widget-links" title="Useful Links" rel="A listing of useful links with more information about Lithium."></div>
+	<div class="widget-box widget-box-3 widget-articles" title="Latest Articles" rel="A listing of blog posts with tutorials for and information about Lithium."></div>
+	
+	<div class="widget-box widget-box-3 widget-links" title="Links" rel="A listing of useful links with more information about Lithium."></div>
+	
+	<div class="widget-box widget-box-3-last widget-screencasts" title="Latest Screencasts" rel="A listing of the latest screencasts."></div>
 </div>
 <div class="grid-8"></div>
 
@@ -39,9 +43,6 @@
 	
 	<p>
 		In the future, I would like to setup a system where anyone can contribute tutorials supported by screencasts, blog posts, etc. and then have the ability to make money for their hard work as well. However, I never see this as something overpriced. I believe these bits of information are typically short, but can be very helpful. My thinking is that certain things may cost a few bucks to obtain while others are completely free. My belief is that most information should be free. I benefitted from free information for years and I would never want to prevent anyone else from doing the same. However, I also believe that incentive to creative tutorials and fair payment for time spent is essential to keeping this alive. Ultimately, I think someone should be able to load up this application for free and then spend $30 or so on advanced training, which is maybe a few tutorials, to walk away with at least the value of a good book. The other very important thing to note is that these tutorials would be coming with code examples. In fact, since this is a free public repository on Github, all code examples are free. So you should definitely be getting far more value from this than any book you could reach for on the shelf. Also note that there are not really any books for Lithium yet anyway.
-	</p>
-	<p>
-		If this is super successful? Well then I think I'd like to have live events. If enough interest and money can be raised, then why not some Lithium conferences? I know, that's a long way off...But it would be quite nice.
 	</p>
 	<p>
 		Keep in mind that anyone can fork this application's repository. If you are interested in what I'm doing here and are interested in creating tutorials for the sandbox yourself, then please get in touch. Additionally, if you have any suggestions for tutorials or if there is something you would like to see, please feel free to ask. I will likely create a wish list component to this application with voting, etc. You can e-mail me at: <?=$this->html->link('tom@union-of-rad.com', 'mailto:tom@union-of-rad.com', array('target' => '_blank')); ?>

@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->html->charset();?>
-	<?php $title = $this->title(); ?>
+	<?php $title = $this->title() ? $this->title() . ' :: Admin':'Admin'; ?>
 	<title><?=$title; ?></title>
 	<?php //echo $this->html->style(array('debug', 'lithium')); ?>	
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>

@@ -40,7 +40,7 @@ class SandboxController extends \lithium\action\Controller {
 	 * 
 	*/
 	public function screencasts() {
-		$conditions = array();
+		$conditions = array('published' => true);
 		
 		// NOTE: the values within this array for "search" include things like "weight" etc. and are not yet fully implemented...But will become more robust and useful.
 		if((isset($this->request->query['q'])) && (!empty($this->request->query['q']))) {
@@ -72,7 +72,7 @@ class SandboxController extends \lithium\action\Controller {
 	 * 
 	*/
 	public function articles() {
-		$conditions = array();
+		$conditions = array('published' => true);
 		
 		// NOTE: the values within this array for "search" include things like "weight" etc. and are not yet fully implemented...But will become more robust and useful.
 		if((isset($this->request->query['q'])) && (!empty($this->request->query['q']))) {
@@ -105,7 +105,7 @@ class SandboxController extends \lithium\action\Controller {
 	 * 
 	 * @return string JSON
 	*/
-	public function links() {
+	public function links_list() {
 		$start = microtime(true);
 		
 		// Only allow this action to be viewed as JSON
@@ -114,12 +114,12 @@ class SandboxController extends \lithium\action\Controller {
 			return json_encode($response);
 		}
 		
-		// Providing a comma separate list of keywords will return only certain types of links.
-		$keywords = isset($this->request->data['keywords']) ? explode(',', $this->request->data['keywords']):false;
+		// Providing a comma separate list of tags will return only certain documents.
+		$tags = isset($this->request->data['tags']) ? explode(',', $this->request->data['tags']):false;
 		
-		$conditions = array();
-		foreach($keywords as $keyword) {
-			$conditions['$or'][] = array('keywords' => trim($keyword));
+		$conditions = array('published' => true);
+		foreach($tags as $tag) {
+			$conditions['$or'][] = array('tags' => trim($tag));
 		}
 		
 		// Limit just in case. So things don't get out of hand one day.
@@ -140,7 +140,119 @@ class SandboxController extends \lithium\action\Controller {
 		$response['total_pages'] = $total_pages;
 		
 		// The links
-		if(!empty($documents)) {
+		if($total > 0) {
+			$response['success'] = true;
+			
+			foreach($documents as $document) {
+				$response['result'][] = array('title' => $document->title, 'description' => $document->description, 'link' => $document->link);
+			}
+		}
+		
+		// Stats
+		$response['created'] = time();
+		$response['took'] = microtime(true) - $start;
+		
+		return json_encode($response);
+	}
+	
+	/**
+	 * This action returns a JSON response with a listing of blog posts and articles based on the
+	 * parameters posted to it.
+	 * 
+	 * @return string JSON
+	*/
+	public function articles_list() {
+		$start = microtime(true);
+		
+		// Only allow this action to be viewed as JSON
+		$response = array('success' => false, 'result' => null, 'created' => null);
+		if(!$this->request->is('json')) {
+			return json_encode($response);
+		}
+		
+		// Providing a comma separate list of tags will return only certain documents.
+		$tags = isset($this->request->data['tags']) ? explode(',', $this->request->data['tags']):false;
+		
+		$conditions = array('published' => true);
+		foreach($tags as $tag) {
+			$conditions['$or'][] = array('tags' => trim($tag));
+		}
+		
+		// Limit just in case. So things don't get out of hand one day.
+		$limit = isset($this->request->data['limit']) ?$this->request->data['limit']:25;
+		$page = $this->request->page ?: 1;
+		$order = array('created' => 'desc');
+		
+		$total = SandboxArticle::count(compact('conditions'));
+		$documents = SandboxArticle::all(compact('conditions','order','limit','page'));
+		
+		$page_number = (int)$page;
+		$total_pages = ((int)$limit > 0) ? ceil($total / $limit):0;
+		
+		// Pagination info
+		$response['page'] = $page;
+		$response['total'] = $total;
+		$response['limit'] = $limit;
+		$response['total_pages'] = $total_pages;
+		
+		// The links
+		if($total > 0) {
+			$response['success'] = true;
+			
+			foreach($documents as $document) {
+				$response['result'][] = array('title' => $document->title, 'description' => $document->description, 'link' => $document->link);
+			}
+		}
+		
+		// Stats
+		$response['created'] = time();
+		$response['took'] = microtime(true) - $start;
+		
+		return json_encode($response);
+	}
+	
+	/**
+	 * This action returns a JSON response with a listing of screencasts based on the parameters 
+	 * posted to it.
+	 * 
+	 * @return string JSON
+	*/
+	public function screencasts_list() {
+		$start = microtime(true);
+		
+		// Only allow this action to be viewed as JSON
+		$response = array('success' => false, 'result' => null, 'created' => null);
+		if(!$this->request->is('json')) {
+			return json_encode($response);
+		}
+		
+		// Providing a comma separate list of tags will return only certain documents.
+		$tags = isset($this->request->data['tags']) ? explode(',', $this->request->data['tags']):false;
+		
+		$conditions = array('published' => true);
+		foreach($tags as $tag) {
+			$conditions['$or'][] = array('tags' => trim($tag));
+		}
+		
+		// Limit just in case. So things don't get out of hand one day.
+		$limit = isset($this->request->data['limit']) ?$this->request->data['limit']:25;
+		$page = $this->request->page ?: 1;
+		$order = array('created' => 'desc');
+		
+		$total = SandboxScreencast::count(compact('conditions'));
+		$documents = SandboxScreencast::all(compact('conditions','order','limit','page'));
+		
+		$page_number = (int)$page;
+		$total_pages = ((int)$limit > 0) ? ceil($total / $limit):0;
+		
+		// Pagination info
+		$response['page'] = $page;
+		$response['total'] = $total;
+		$response['limit'] = $limit;
+		$response['total_pages'] = $total_pages;
+		
+		// The links
+		if($total > 0) {
 			$response['success'] = true;
 			
 			foreach($documents as $document) {

@@ -3,7 +3,7 @@
 <head>
 	<?php 
 		echo $this->html->charset() . "\n";
-		$title = $this->title();
+		$title = $this->title() ? $this->title() . ' :: Lithium Sandbox':'Lithium Sandbox';
 		echo "\t" . '<title>' . $title . '</title>' . "\n\n";
 	?>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

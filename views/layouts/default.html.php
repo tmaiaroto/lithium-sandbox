@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<?php echo $this->html->charset();?>
-	<?php $title = $this->title(); ?>
+	<?php $title = $this->title() ? $this->title():''; ?>
 	<title><?=$title ?></title>
 	<?php 
 		echo $this->html->style(array('reset', 'text', '960', 'layout', 'nav', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css', 'front_end', 'jquery/tipsy.css'), array('inline' => false));	

@@ -359,3 +359,19 @@ form.unstyled input, form.unstyled input[type=submit], form.unstyled input[type=
 ul.widget-links-list {
 	
 }
+
+/* For 3 widgets side by side spanning across a grid_16 */
+.widget-box-3, .widget-box-3-last {
+	clear: none;
+	padding: 5px;
+	border: 1px solid #eee;
+	float: left;
+	margin-right: 15px;
+	width: 265px;
+	-moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
+	-webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
+	box-shadow: 2px 2px 12px rgba(0,0,0,.15);
+}
+.widget-box-3-last {
+	margin-right: 0;
+}

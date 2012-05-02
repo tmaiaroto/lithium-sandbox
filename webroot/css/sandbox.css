@@ -324,6 +324,9 @@ form.unstyled input, form.unstyled input[type=submit], form.unstyled input[type=
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
 	border-radius:4px;
+	margin-top: 5px;
+	clear: left;
+	display: block;
 }
 .grid_6 .widget-box {
 	width: 100%;

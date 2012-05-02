@@ -24,6 +24,7 @@ class SandboxLink extends BaseModel {
 		'description' => array('type' => 'string'),
 		'link' => array('type' => 'string'),
 		'tags' => array('type' => 'array'),
+		'published' => array('type' => 'boolean'),
 		'created' => array('type' => 'date')
 	);
 	

@@ -10,6 +10,7 @@ namespace app\controllers;
 use app\models\SandboxArticle;
 use app\models\SandboxLink;
 use app\models\SandboxScreencast;
+use app\models\SandboxPresentation;
 use MongoId;
 use MongoDate;
 use MongoRegex;
@@ -266,5 +267,62 @@ class SandboxController extends \lithium\action\Controller {
 		
 		return json_encode($response);
 	}
+	
+	/**
+	 * This action returns a JSON response with a listing of presentations based on the parameters 
+	 * posted to it.
+	 * 
+	 * @return string JSON
+	*/
+	public function presentations_list() {
+		$start = microtime(true);
+		
+		// Only allow this action to be viewed as JSON
+		$response = array('success' => false, 'result' => null, 'created' => null);
+		if(!$this->request->is('json')) {
+			return json_encode($response);
+		}
+		
+		// Providing a comma separate list of tags will return only certain documents.
+		$tags = isset($this->request->data['tags']) ? explode(',', $this->request->data['tags']):false;
+		
+		$conditions = array('published' => true);
+		foreach($tags as $tag) {
+			$conditions['$or'][] = array('tags' => trim($tag));
+		}
+		
+		// Limit just in case. So things don't get out of hand one day.
+		$limit = isset($this->request->data['limit']) ?$this->request->data['limit']:25;
+		$page = $this->request->page ?: 1;
+		$order = array('created' => 'desc');
+		
+		$total = SandboxPresentation::count(compact('conditions'));
+		$documents = SandboxPresentation::all(compact('conditions','order','limit','page'));
+		
+		$page_number = (int)$page;
+		$total_pages = ((int)$limit > 0) ? ceil($total / $limit):0;
+		
+		// Pagination info
+		$response['page'] = $page;
+		$response['total'] = $total;
+		$response['limit'] = $limit;
+		$response['total_pages'] = $total_pages;
+		
+		// The links
+		if($total > 0) {
+			$response['success'] = true;
+			
+			foreach($documents as $document) {
+				$response['result'][] = array('title' => $document->title, 'description' => $document->description, 'link' => $document->link);
+			}
+		}
+		
+		// Stats
+		$response['created'] = time();
+		$response['took'] = microtime(true) - $start;
+		
+		return json_encode($response);
+	}
+	
 }
 ?>

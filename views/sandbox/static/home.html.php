@@ -19,11 +19,13 @@
 ?>
 
 <div class="grid-8">
+	<div class="widget-box widget-box-3 widget-screencasts" title="Latest Tutorials"></div>
+	
 	<div class="widget-box widget-box-3 widget-articles" title="Latest Articles" rel="A listing of blog posts with tutorials for and information about Lithium."></div>
 	
-	<div class="widget-box widget-box-3 widget-links" title="Links" rel="A listing of useful links with more information about Lithium."></div>
+	<?php /* <div class="widget-box widget-box-3 widget-links" title="Links" rel="A listing of useful links with more information about Lithium."></div> */ ?>
 	
-	<div class="widget-box widget-box-3-last widget-screencasts" title="Latest Screencasts" rel="A listing of the latest screencasts."></div>
+	<div class="widget-box widget-box-3-last widget-presentations" title="Latest Videos & Slides" rel="A listing of the latest presentations from events and meetups."></div>
 </div>
 <div class="grid-8"></div>
 

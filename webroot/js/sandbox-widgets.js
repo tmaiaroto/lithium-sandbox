@@ -18,7 +18,7 @@ $(document).ready(function() {
  * $('#somediv').sandboxWidget({type:'links', title:'Links', help:'Some helpful links for you.'});
 */
 (function( $ ) {
-	var dataLoaded = {links:false,articles:false,screencasts:false};
+	var dataLoaded = {links:false,articles:false,screencasts:false,presentations:false};
 	
 	var methods = {
 		init : function(options) {
@@ -227,7 +227,7 @@ $(document).ready(function() {
 			var $this = $(this),
 				data = $this.data('sandboxWidget');
 			
-			$('.widget-content', this).html('<span class="widget-no-data">Sorry, no data available.</span>');
+			$('.widget-content', this).html('<span class="widget-no-data">Sorry, nothing at this time.</span>');
 			// Show it.
 			$(this).sandboxWidget('loading', false);
 		},
@@ -294,6 +294,20 @@ $(document).ready(function() {
 					
 					// If for some reason we had multiple widgets, they would all now display.
 					$('.widget-screencasts').sandboxWidget('loading', false);
+					break;
+				case 'presentations':
+					var widgetHtml = '<ul class="widget-presentations-list">';
+					
+					for(i in data.presentations) {
+						widgetHtml += '<li><a href="' + data.presentations[i].link + '" target="_blank">' + data.presentations[i].title + '</a></li>';
+					}
+					
+					widgetHtml += '</ul>';
+					
+					$('.widget-presentations .widget-content').html(widgetHtml);
+					
+					// If for some reason we had multiple widgets, they would all now display.
+					$('.widget-presentations').sandboxWidget('loading', false);
 					break;
 			}
 			
@@ -376,7 +390,7 @@ $(document).ready(function() {
 				}
 			});
 
-			// SCREENCASTS
+			// SCREENCASTS/TUTORIALS
 			$.ajax({
 				url: '/sandbox/screencasts_list.json',
 				data: { },
@@ -394,6 +408,31 @@ $(document).ready(function() {
 						
 						// Call the update method now that we have the data.
 						$this.sandboxWidget('update', {type:'screencasts'});
+					}
+					if(response.result == null || response.success == false) {
+						$this.sandboxWidget('noData');
+					}
+				}
+			});
+			
+			// PRESENTATIONS/VIDEOS/SLIDES
+			$.ajax({
+				url: '/sandbox/presentations_list.json',
+				data: { },
+				type: 'POST',
+				dataType: 'json',
+				success: function(response) {
+					// First, let everything know that this call has completed.
+					dataLoaded.presentations = true;
+					
+					//console.dir(response);
+					if(response.success == true) {
+						// Update the sandboxWidget data.
+						data.presentations = response.result;
+						$(this).data('sandboxWidget', data);
+						
+						// Call the update method now that we have the data.
+						$this.sandboxWidget('update', {type:'presentations'});
 					}
 					if(response.result == null || response.success == false) {
 						$this.sandboxWidget('noData');

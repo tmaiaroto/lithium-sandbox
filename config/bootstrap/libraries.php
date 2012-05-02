@@ -134,4 +134,13 @@ Libraries::add('li3_facebook', array(
 */
 
 Libraries::add('li3_qa');
+
+/**
+ * This includes the sandbox admin library which allows easy management of links on the sandbox app.
+ * This is not a publicly accessible library of course, which is why there's a file_exists() check.
+ * You can remove this if you like, it's here purefly for admin convenience.
+*/
+if(file_exists(LITHIUM_LIBRARY_PATH . '/li3_sandbox_admin')) {
+	Libraries::add('li3_sandbox_admin');
+}
 ?>

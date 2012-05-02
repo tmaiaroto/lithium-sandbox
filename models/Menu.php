@@ -33,6 +33,20 @@ class Menu extends \lithium\core\StaticObject {
 				'title' => 'Logout',
 				'url' => array('controller' => 'users', 'action' => 'logout')
 			)
+		),
+		'sandbox' => array(
+			'a' => array(
+				'title' => 'Home',
+				'url' => array('controller' => 'sandbox', 'action' => 'page', 'args' => array('home'))
+			),
+			'b' => array(
+				'title' => 'Tutorials',
+				'url' => array('controller' => 'sandbox', 'action' => 'screencasts')
+			),
+			'c' => array(
+				'title' => 'Help',
+				'url' => array('controller' => 'sandbox', 'action' => 'page', 'args' => array('help'))
+			)
 		)
 	);
 

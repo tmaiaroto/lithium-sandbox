@@ -22,9 +22,10 @@
 	?>
 </head>
 <body class="app">
-	<div id="container">
+	<div class="container_16">
+		<?php echo $this->menu->static_menu('sandbox', array('menu_class' => '', 'menu_id' => 'sandbox_nav')); ?>
 		<div id="header">
-			<h1>The Lithium Sandbox</h1>
+			<h1><?php echo $this->title() ? $this->title():'The Lithium Sandbox'; ?></h1>
 		</div>
 		<div id="content">
 			<?php echo $this->content(); ?>

@@ -1,4 +1,11 @@
 /* Most of Lithium's default styles for color, etc. this gives the sandbox the Lithium feel. */
+/* 
+MAGENTA: #ff59ff
+LIGHT BLUE: #00a8e6
+SLIGHTLY LIGHER BLUE: #00bbff
+TITLE GRAY: #999
+GREEN: #4DDB4A
+*/
 
 /*--- Layout ---*/
 body {
@@ -298,7 +305,7 @@ input, textarea {
 }
 
 /* Unstyled Forms */
-form.unstyled {
+form.unstyled, .large_search .search_form form {
 	border: none;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
@@ -314,6 +321,53 @@ form.unstyled input, form.unstyled input[type=submit], form.unstyled input[type=
 	box-shadow: none;
 	padding: 0;
 	margin: 0;
+}
+
+.large_search .search_form input.search {
+	font-size: 2em;
+	height: 32px;
+	float: left;
+	width: 400px;
+	margin: 0;
+	margin-right: 10px;
+}
+.large_search .search_form input[type=submit] {
+	float: left;
+	clear: none;
+	margin: 0;
+}
+
+/* Sandbox Menu */
+ul#sandbox_nav {
+	margin: 0 0 40px 0;
+}
+ul#sandbox_nav li {
+	margin: 0;
+	padding: 10px;
+	list-style: none;
+	display: inline;
+	background: #000;
+	color: #fff;
+	text-indent: 0;
+	font-size: 1.7em;
+}
+ul#sandbox_nav li a {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	vertical-align: middle;
+}
+ul#sandbox_nav li a:hover {
+	color: #00bbff;
+}
+ul#sandbox_nav li a:visited:hover {
+	color: #ff59ff;
+}
+ul#sandbox_nav li.menu_first {
+	margin-left: 0;
+	border-left: none;
+	list-style: none;
+	display: inline;
 }
 
 /* Widgets */
@@ -377,4 +431,54 @@ ul.widget-links-list {
 }
 .widget-box-3-last {
 	margin-right: 0;
+}
+
+/* Pagination */
+.pagination {
+	clear: left;
+	display: block;
+	padding-top: 20px;
+}
+
+/* Index/Search Listing Pages */
+.item-index-list {
+	clear: left;
+	display: block;
+	margin-top: 15px;
+}
+
+.item-index-list ul {
+	list-style: none;
+	text-indent: 0;
+	margin: 0;
+}
+.item-index-list ul li {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+.item-index-list .item-title a {
+	font-size: 1.7em;
+	color: #222;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	line-height: 100%;
+}
+.item-index-list .item-title a:hover {
+	color: #ff59ff;
+}
+.item-index-list .item-description {
+	clear: left;
+	display: block;
+	font-size: 1.1em;
+	margin-left: 25px;
+	color: #777;
+}
+.item-index-list .item-date {
+	clear: left;
+	font-size: 0.8em;
+	font-style: italic;
+	margin-left: 25px;
+	color: #777;
 }

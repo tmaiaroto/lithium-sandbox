@@ -131,7 +131,7 @@ td, th {
 	text-align: left;
 	font-weight: normal;
 	color: #666;
-	font-size: 0.85em;
+	font-size: 1.4em;
 }
 tr:nth-child(even) {
 	background: #fff;
@@ -140,7 +140,7 @@ thead th, tfoot td {
 	background: #f3f3f3;
 	color: #333;
 	text-align: left;
-	font-size: 1em;
+	font-size: 1.2em;
 	font-weight: bold;
 	padding: .5em .75em;
 }
@@ -168,6 +168,7 @@ label {
 	padding: 0 1em 0 0;
 	color: #454545;
 	font-weight: normal;
+	font-size: 1.4em;
 }
 input, textarea, button {
 	font-family: Helvetica, Arial, sans-serif;

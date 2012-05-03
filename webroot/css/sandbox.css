@@ -419,8 +419,9 @@ ul#sandbox_nav li.menu_first {
 	font-size: 0.8em;
 }
 
-ul.widget-links-list {
-	
+ul.widget-list {
+	text-indent: 0;
+	margin-left: 0;
 }
 
 /* For 3 widgets side by side spanning across a grid_16 */
@@ -430,7 +431,7 @@ ul.widget-links-list {
 	border: 1px solid #eee;
 	float: left;
 	margin-right: 15px;
-	width: 265px;
+	width: 298px;
 	-moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
 	-webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
 	box-shadow: 2px 2px 12px rgba(0,0,0,.15);

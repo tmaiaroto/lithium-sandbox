@@ -254,7 +254,7 @@ $(document).ready(function() {
 			
 			switch(settings.type) {
 				case 'links':
-					var widgetHtml = '<ul class="widget-links-list">';
+					var widgetHtml = '<ul class="widget-links-list widget-list">';
 					
 					for(i in data.links) {
 						widgetHtml += '<li><a href="' + data.links[i].link + '" target="_blank">' + data.links[i].title + '</a></li>';
@@ -268,7 +268,7 @@ $(document).ready(function() {
 					$('.widget-links').sandboxWidget('loading', false);
 					break;
 				case 'articles':
-					var widgetHtml = '<ul class="widget-articles-list">';
+					var widgetHtml = '<ul class="widget-articles-list widget-list">';
 					
 					for(i in data.articles) {
 						widgetHtml += '<li><a href="' + data.articles[i].link + '" target="_blank">' + data.articles[i].title + '</a></li>';
@@ -282,7 +282,7 @@ $(document).ready(function() {
 					$('.widget-articles').sandboxWidget('loading', false);
 					break;
 				case 'screencasts':
-					var widgetHtml = '<ul class="widget-screencasts-list">';
+					var widgetHtml = '<ul class="widget-screencasts-list widget-list">';
 					
 					for(i in data.screencasts) {
 						widgetHtml += '<li><a href="' + data.screencasts[i].link + '" target="_blank">' + data.screencasts[i].title + '</a></li>';
@@ -296,7 +296,7 @@ $(document).ready(function() {
 					$('.widget-screencasts').sandboxWidget('loading', false);
 					break;
 				case 'presentations':
-					var widgetHtml = '<ul class="widget-presentations-list">';
+					var widgetHtml = '<ul class="widget-presentations-list widget-list">';
 					
 					for(i in data.presentations) {
 						widgetHtml += '<li><a href="' + data.presentations[i].link + '" target="_blank">' + data.presentations[i].title + '</a></li>';

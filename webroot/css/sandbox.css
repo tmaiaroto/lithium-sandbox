@@ -337,6 +337,11 @@ form.unstyled input, form.unstyled input[type=submit], form.unstyled input[type=
 	margin: 0;
 }
 
+.small_search input.search {
+	font-size: 1.5em;
+	height: 20px;
+}
+
 /* Sandbox Menu */
 ul#sandbox_nav {
 	margin: 0 0 40px 0;
